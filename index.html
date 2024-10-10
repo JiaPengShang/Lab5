@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 1:The HTML5 Canvas</title>
+</head>
+
+<body>
+
+    <ul>
+        <li><a href="index.html">Exercise 1:The HTML5 Canvas</a></li>
+        <li><a href="exercise2.html">Exercise 2:HTML5 Geolocation</a></li>
+        <li><a href="exercise3.html">Exercise 3:Local Storage Lab: To-Do List with Local Storage</a></li>
+    </ul>
+    <h1>The HTML5 Canvas</h1>
+    <canvas id="myCanvas1" width="500" height="500" style="border: 1px solid green;">
+    </canvas>
+    <script type="text/javascript">
+        window.canvas = document.getElementById('myCanvas1');
+        window.ctx = canvas.getContext('2d');
+
+        // Green background
+        ctx.fillStyle = "green";
+        ctx.fillRect(0, 0, 500, 500);
+
+        // Larger yellow smiley
+        ctx.beginPath();
+        ctx.arc(250, 250, 125, 0, 2 * Math.PI); // Increased radius for larger size
+        ctx.fillStyle = "yellow";
+        ctx.fill();
+
+        // Eyes
+        ctx.fillStyle = "black";
+        ctx.beginPath();
+        ctx.arc(200, 200, 15, 0, 2 * Math.PI); // Slightly larger eyes
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(300, 200, 15, 0, 2 * Math.PI);
+        ctx.fill();
+
+        // Nose
+        ctx.beginPath();
+        ctx.moveTo(250, 230); // Starting point of nose
+        ctx.lineTo(250, 250); // Ending point of nose
+        ctx.closePath();      // Close path for triangle
+        ctx.fillStyle = "black";
+        ctx.stroke();
+
+        // Smile
+        ctx.beginPath();
+        ctx.arc(250, 275, 50, 0, Math.PI); // Adjusted position and size of mouth
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = "black";
+        ctx.stroke();
+
+        // Text at the bottom of the green block
+        ctx.fillStyle = "pink";
+        ctx.font = "bold 20px Arial";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "bottom";
+        ctx.fillText("The Canvas brought me to life!", 250, 480); // Positioned near the bottom
+    </script>
+</body>
+
+</html>
